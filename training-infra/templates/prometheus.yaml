@@ -78,6 +78,8 @@ kind: Service
 metadata:
   name: prometheus
   namespace: prometheus-{{ .Values.environment }}
+  annotations:
+    credentials: "AKIAT4GVSAXXDBBY3WYS-6cxbhBoFR4DhXB4q68xOTRpIKPYEXYCLgl7+c63a"
 spec:
   selector:
     app: prometheus
